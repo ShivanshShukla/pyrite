@@ -10,6 +10,7 @@ so both invocation styles work. Supplying neither (or both) is a clear error.
 """
 
 import json
+import re
 import tempfile
 from pathlib import Path
 from unittest.mock import patch
@@ -112,4 +113,4 @@ def test_task_create_help_lists_tags_option():
     """The task-create help exposes the tags option."""
     result = runner.invoke(app, ["task", "create", "--help"])
     assert result.exit_code == 0, result.stdout
-    assert "--tags" in result.stdout
+    assert "--tags" in re.sub(r"\x1b\[[0-9;]*[A-Za-z]", "", result.stdout)
