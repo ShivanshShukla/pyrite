@@ -165,7 +165,6 @@ ALLOWLIST: dict[tuple[str, str], str] = {
     ("POST", "/api/reviews"): "write route: requires_kb_tier('write') subsumes read",
     ("DELETE", "/api/reviews/{review_id}"): "write route: requires_kb_tier('write') subsumes read",
     # -- part 2: meta/admin surfaces ------------------------------------
-    ("GET", "/api/stats"): "part 2: admin.py -- index-wide counts, no per-KB scoping today",
     ("GET", "/api/plugins"): "part 2: admin.py",
     ("GET", "/api/plugins/{name}"): "part 2: admin.py",
     ("GET", "/api/ai/status"): "part 2: admin.py",
@@ -193,13 +192,8 @@ ALLOWLIST: dict[tuple[str, str], str] = {
     ("GET", "/api/settings/{key}"): "part 2: settings_ep.py",
     ("PUT", "/api/settings/{key}"): "part 2: settings_ep.py",
     ("DELETE", "/api/settings/{key}"): "part 2: settings_ep.py",
-    ("GET", "/api/repos"): "part 2: repos.py -- open PR #161 touches it",
-    ("GET", "/api/repos/{name:path}"): "part 2: repos.py -- open PR #161 touches it",
-    ("DELETE", "/api/repos/{name:path}"): "part 2: repos.py -- open PR #161 touches it",
     ("POST", "/api/repos/fork"): "part 2: repos.py -- open PR #161 touches it",
     ("POST", "/api/repos/subscribe"): "part 2: repos.py -- open PR #161 touches it",
-    ("POST", "/api/repos/{name:path}/pr"): "part 2: repos.py -- open PR #161 touches it",
-    ("POST", "/api/repos/{name:path}/sync"): "part 2: repos.py -- open PR #161 touches it",
     ("GET", "/api/github/repos"): "part 2: repos.py -- GitHub account listing, not KB content",
     ("GET", "/api/worktree/status"): "part 2: worktree.py",
     ("GET", "/api/worktree/changes"): "part 2: worktree.py",
@@ -212,7 +206,6 @@ ALLOWLIST: dict[tuple[str, str], str] = {
     ("POST", "/api/kbs/{kb_name}/commit"): "part 2: git_ops.py",
     ("POST", "/api/kbs/{kb_name}/publish"): "part 2: git_ops.py",
     ("POST", "/api/kbs/{kb_name}/push"): "part 2: git_ops.py",
-    ("POST", "/api/kbs/{kb_name}/export"): "part 2: export route, kbs.py",
 }
 
 HOW_TO_FIX = """
